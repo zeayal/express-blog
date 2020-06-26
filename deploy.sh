@@ -7,5 +7,3 @@ git pull;
 
 echo "安装 npm 依赖";
 yarn;
-
-pm2 restart all;
