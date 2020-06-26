@@ -9,7 +9,7 @@ const githubWebhook = require('./middleware/githubWebhook');
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello, this is my blog test webhook 6");
+  res.send("Hello, this is my blog test webhook 7");
 });
 
 // 设置
