@@ -9,18 +9,18 @@ const githubWebhook = require('./middleware/githubWebhook');
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello, this is my blog test webhook 8");
+  res.send("Hello, this is my blog test webhook 9");
 });
 
 // 设置
 app.post("/payload", githubWebhook, (req, res) => {
-  console.log("req.body", req.body);
+  console.log("接收到webHook请求", Date.now());
   child_process.exec('bash deploy.sh', {cwd: "/data/express-blog"}, (error, stdout, stderr) => {
     if(error || stderr) {
       res.send(`I got error:${JSON.stringify(error)}, stderr:${JSON.stringify(stderr)}`);
     } else {
       // ${req.body.inspect}
-      res.send(`I got some json`);
+      res.send(`I got some json: ${stdout}`);
     }
 
   })
