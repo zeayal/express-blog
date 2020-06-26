@@ -4,8 +4,6 @@ require('dotenv').config()
 const secret = process.env.GITHUB_WEBHOOK_SECRET;
 const signHeaderName = "X-Hub-Signature";
 
-console.log("secret", secret);
-
 module.exports = (req, res, next) => {
   const payload = JSON.stringify(req.body);
   if (!payload) {
