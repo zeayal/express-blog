@@ -1,13 +1,14 @@
 {
   "name": "express-blog",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon server/app.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
