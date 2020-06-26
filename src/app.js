@@ -16,11 +16,11 @@ app.get("/", (req, res) => {
 app.post("/payload", githubWebhook, (req, res) => {
   console.log("接收到webHook请求", Date.now());
   child_process.exec('bash deploy.sh', {cwd: "/data/express-blog"}, (error, stdout, stderr) => {
-    if(error || stderr) {
+    if(error) {
       res.send(`I got error:${JSON.stringify(error)}, stderr:${JSON.stringify(stderr)}`);
     } else {
       // ${req.body.inspect}
-      res.send(`I got some json: ${stdout}`);
+      res.send(`I got some json: ${stdout} & stderr: ${stderr}`);
     }
 
   })
