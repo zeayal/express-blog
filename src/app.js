@@ -9,7 +9,7 @@ require('dotenv').config()
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello, this is my blog test webhook 5");
+  res.send("Hello, this is my blog test webhook 6");
 });
 
 // 设置
