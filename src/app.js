@@ -13,8 +13,16 @@ app.get("/", (req, res) => {
 // 设置
 app.post("/payload", (req, res) => {
   console.log("req.body", req.body);
-  child_process.exec('cd .. && bash ./deploy.sh')
-  res.send(`I got some json: ${req.body.inspect}`);
+  child_process.exec('bash ./deploy.sh', {cwd: "/data/express-blog"}, (error, stdout, stderr) => {
+    if(error || stderr) {
+      res.send(`I got error:${JSON.stringify(error)}, stderr:${JSON.stringify(stderr)}`);
+    } else {
+      // ${req.body.inspect}
+      res.send(`I got some json: ${stdout}`);
+    }
+
+  })
+  
 });
 
 const port = 1024;
