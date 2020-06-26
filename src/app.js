@@ -7,7 +7,7 @@ const child_process = require('child_process');
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello, this is my blog test webhook 2");
+  res.send("Hello, this is my blog test webhook 3");
 });
 
 // 设置
