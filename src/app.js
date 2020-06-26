@@ -3,7 +3,7 @@ const app = new express();
 const bodyParser = require("body-parser");
 const child_process = require('child_process');
 const githubWebhook = require('./middleware/githubWebhook');
-require('dotenv').config()
+
 
 // parser application/json
 app.use(bodyParser.json());
