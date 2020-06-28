@@ -3,6 +3,7 @@ const app = new express();
 const bodyParser = require("body-parser");
 const child_process = require("child_process");
 const githubWebhook = require("./middleware/githubWebhook");
+const homeRouter = require('./routes/home');
 
 // app use pug template
 app.set("view engine", "pug");
@@ -15,6 +16,8 @@ app.use(express.static('server/public/static'));
 app.get("/", (req, res) => {
   res.render("index", { title: "博客", message: "hello there" });
 });
+
+app.use('/home', homeRouter);
 
 // 设置
 app.post("/payload", githubWebhook, (req, res) => {
